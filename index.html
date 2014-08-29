@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Start Page</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/zweatherfeed.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+
+<!-- Add mousewheel plugin (this is optional) -->
+<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<!-- Calendar -->
+<link href='fullcalendar.css' rel='stylesheet' />
+<link href='fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='lib/moment.min.js'></script>
+<script src='fullcalendar.min.js'></script>
+<script src='gcal.js'></script>
+<script>
+
+	$(document).ready(function() {
+	
+		$('#calendar').fullCalendar({
+		
+			// UTA Calendar
+			events: 'https://www.google.com/calendar/feeds/r0ed3kf0npj2hg8rlpcov50974%40group.calendar.google.com/public/basic',
+			
+			eventClick: function(event) {
+				// opens events in a popup window
+				window.open(event.url, 'gcalevent', 'width=700,height=600');
+				return false;
+			},
+			
+			loading: function(bool) {
+				$('#loading').toggle(bool);
+			}
+			
+			
+			
+		});
+		
+	});
+
+</script>
+
+<style>
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		color:#fff;
+		font-size: 14px;
+	}
+
+	#calendar {
+		width: 700px;
+		margin: 40px auto;
+		color:#fff;
+	}
+
+</style>
+
+<link rel="stylesheet" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+<link rel="stylesheet" href="style.css"/>
+
+<!--Start Sticky Note JS -->
+		<script>
+			function storeUsernote(id) {
+			  var note = document.getElementById('note').innerHTML;
+			  localStorage.setItem('usernote',note);
+			}
+
+			function getUsernote() {
+			  if ( localStorage.getItem('usernote')) {
+				var note = localStorage.getItem('usernote');
+			  }
+			  else {
+				var note = 'Write your note here';
+			  }
+			  document.getElementById('note').innerHTML = note;
+			}
+
+			function clearLocal() {
+			  clear: localStorage.clear(); 
+			  return false;
+			}
+		</script>
+		
+<script>
+function blinker() {
+    $('.blink_me').fadeOut(2000);
+    $('.blink_me').fadeIn(100);
+}
+
+setInterval(blinker, 5000);
+</script>
+
+<style>
+
+#cssmenu {
+  background: #1e1f2c;
+  width: auto;
+}
+#cssmenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  zoom: 1;
+}
+#cssmenu ul:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#cssmenu ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+#cssmenu.align-right ul li {
+  float: right;
+}
+#cssmenu.align-center ul {
+  text-align: center;
+}
+#cssmenu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 15px 25px;
+  font-family: Calibri, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  -webkit-transition: color .25s;
+  -moz-transition: color .25s;
+  -ms-transition: color .25s;
+  -o-transition: color .25s;
+  transition: color .25s;
+}
+#cssmenu ul li a:hover {
+  color: #FFFFFF;
+}
+#cssmenu ul li a:hover:before {
+  width: 100%;
+}
+#cssmenu ul li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 19px;
+  height: 6px;
+  width: 6px;
+  background: #ffffff;
+  opacity: .5;
+}
+#cssmenu ul li a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: #ffffff;
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
+}
+#cssmenu ul li.last > a:after,
+#cssmenu ul li:last-child > a:after {
+  display: none;
+}
+#cssmenu ul li.active a {
+  color: #ffffff;
+}
+#cssmenu ul li.active a:before {
+  width: 100%;
+}
+#cssmenu.align-right li.last > a:after,
+#cssmenu.align-right li:last-child > a:after {
+  display: block;
+}
+#cssmenu.align-right li:first-child a:after {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #cssmenu ul li {
+    float: none;
+    display: block;
+  }
+  #cssmenu ul li a {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ffffff;
+  }
+  #cssmenu ul li.last > a,
+  #cssmenu ul li:last-child > a {
+    border: 0;
+  }
+  #cssmenu ul li a:after {
+    display: none;
+  }
+  #cssmenu ul li a:before {
+    display: none;
+  }
+}
+
+</style>
+
+</head>
+<body>
+	<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#'><span>Home</span></a></li>
+   <li class='last'><a href='http://webmail.server.com'><span>Mail</span></a></li>
+</ul>
+</div>
+	<div id="wrapper">
+		<header>
+			<h2>  <span class="blink_me">Good Day</span> Tasks to do today include: X, Y, and Z The high today is 100°.</h2>
+			<br>
+			<!-- Time -->
+			<div id="fulltime">
+				<h2 id="time"></h2>
+				<h1 id="day"></h1>
+				<h3 id="date"></h3v>
+			</div>
+			<!-- Weather -->
+			<div id="weather"></div>
+			<div class="clear"></div>
+		</header>
+		<!-- Content Links -->
+		<section id="bm">
+			<ul>
+				<li class="title">News</li>
+				<li><a href="http://rt.com/">RT</a></li>
+				<li><a href="http://www.bbc.com/news/world/us_and_canada/">BBC</a></li>
+				<li><a href="http://www.wunderground.com/weather-forecast/zmw:76001.1.99999/">Wunderground</a></li>
+				<li><a href="http://www.space.com/">Space</a></li>
+				<li><a href="http://www.nbcdfw.com/">NBC DFW</a></li>
+				<!-- RSS Reader -->
+				<li><script type="text/javascript">document.write('<script type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'laurenbonneau.tk/rss/rssmikle.js"><' + '/script>');</script><script type="text/javascript">(function() {var params = {rssmikle_url: "http://www.nbcdfw.com/news/top-stories/?rss=y&embedThumb=y&summary=y",rssmikle_frame_width: "200",rssmikle_frame_height: "100",rssmikle_target: "_blank",rssmikle_font: "Calibri, Calibri, sans-serif",rssmikle_font_size: "13",rssmikle_border: "off",responsive: "off",rssmikle_css_url: "",text_align: "left",text_align2: "left",corner: "off",scrollbar: "off",autoscroll: "on",scrolldirection: "up",scrollstep: "3",mcspeed: "20",sort: "New",rssmikle_title: "off",rssmikle_title_sentence: "",rssmikle_title_link: "",rssmikle_title_bgcolor: "#0066FF",rssmikle_title_color: "#a5a5a5",rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#1E1F2C",rssmikle_item_bgimage: "",rssmikle_item_title_length: "55",rssmikle_item_title_color: "#a5a5a5",rssmikle_item_border_bottom: "off",rssmikle_item_description: "title_only",item_link: "off",rssmikle_item_description_length: "150",rssmikle_item_description_color: "#a5a5a5",rssmikle_item_date: "off",rssmikle_timezone: "Etc/GMT",datetime_format: "%b %e, %Y %l:%M:%S %p",rssmikle_item_description_tag: "off",rssmikle_item_description_image_scaling: "off",article_num: "10",rssmikle_item_podcast: "off",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();</script><div style="font-size:10px; text-align:center; width:200;"></div></li>
+			</ul>
+			<ul>
+				<li class="title">Entertainment</li>
+				<li><a href="https://www.youtube.com/">YouTube</a></li>
+				<li><a href="https://www.youtube.com/user/GameGrumps">Game Grumps</a></li>
+				<li><a href="https://www.netflix.com/">Netflix</a></li>
+				<li><a href="http://boards.4chan.org/b/">/b/</a></li>
+				<li><script type="text/javascript">document.write('<script type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'laurenbonneau.tk/rss/rssmikle.js"><' + '/script>');</script><script type="text/javascript">(function() {var params = {rssmikle_url: "http://boards.4chan.org/b/index.rss",rssmikle_frame_width: "200",rssmikle_frame_height: "100",rssmikle_target: "_blank",rssmikle_font: "Calibri, Calibri, sans-serif",rssmikle_font_size: "13",rssmikle_border: "off",responsive: "off",rssmikle_css_url: "",text_align: "left",text_align2: "left",corner: "off",scrollbar: "off",autoscroll: "on",scrolldirection: "up",scrollstep: "3",mcspeed: "20",sort: "New",rssmikle_title: "off",rssmikle_title_sentence: "",rssmikle_title_link: "",rssmikle_title_bgcolor: "#0066FF",rssmikle_title_color: "#a5a5a5",rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#1E1F2C",rssmikle_item_bgimage: "",rssmikle_item_title_length: "55",rssmikle_item_title_color: "#a5a5a5",rssmikle_item_border_bottom: "off",rssmikle_item_description: "title_only",item_link: "off",rssmikle_item_description_length: "150",rssmikle_item_description_color: "#a5a5a5",rssmikle_item_date: "off",rssmikle_timezone: "Etc/GMT",datetime_format: "%b %e, %Y %l:%M:%S %p",rssmikle_item_description_tag: "off",rssmikle_item_description_image_scaling: "off",article_num: "10",rssmikle_item_podcast: "off",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();</script><div style="font-size:10px; text-align:center; width:200;"></div></li>
+			</ul>
+			<ul>
+				<li class="title">Social</li>
+				<li><a href="http://okcupid.com">OKCupid</a></li>
+				<li><a href="http://deviantart.com">deviantART</a></li>
+				<li><script type="text/javascript">document.write('<script type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'laurenbonneau.tk/rss/rssmikle.js"><' + '/script>');</script><script type="text/javascript">(function() {var params = {rssmikle_url: "http://backend.deviantart.com/rss.xml?type=deviation&q=by%3Aspyed+sort%3Atime+meta%3Aall",rssmikle_frame_width: "200",rssmikle_frame_height: "100",rssmikle_target: "_blank",rssmikle_font: "Calibri, Calibri, sans-serif",rssmikle_font_size: "13",rssmikle_border: "off",responsive: "off",rssmikle_css_url: "",text_align: "left",text_align2: "left",corner: "off",scrollbar: "off",autoscroll: "on",scrolldirection: "up",scrollstep: "3",mcspeed: "20",sort: "New",rssmikle_title: "off",rssmikle_title_sentence: "",rssmikle_title_link: "",rssmikle_title_bgcolor: "#0066FF",rssmikle_title_color: "#a5a5a5",rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#1E1F2C",rssmikle_item_bgimage: "",rssmikle_item_title_length: "55",rssmikle_item_title_color: "#a5a5a5",rssmikle_item_border_bottom: "off",rssmikle_item_description: "title_only",item_link: "off",rssmikle_item_description_length: "150",rssmikle_item_description_color: "#a5a5a5",rssmikle_item_date: "off",rssmikle_timezone: "Etc/GMT",datetime_format: "%b %e, %Y %l:%M:%S %p",rssmikle_item_description_tag: "off",rssmikle_item_description_image_scaling: "off",article_num: "10",rssmikle_item_podcast: "off",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();</script><div style="font-size:10px; text-align:center; width:200;"></div></li>
+			</ul>
+			<ul>
+				<li class="title">College</li>
+				<li><a href="https://mail.google.com/mail/u/0/">Gmail</a></li>
+				<li><a href="http://www.outlook.com/">Outlook</a></li>
+				<li><a href="http://uta.edu">UTA</a></li>
+				<!-- RSS Reader -->
+				<li><script type="text/javascript">document.write('<script type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'laurenbonneau.tk/rss/rssmikle.js"><' + '/script>');</script><script type="text/javascript">(function() {var params = {rssmikle_url: "http://www.uta.edu/news/releases/rss.php",rssmikle_frame_width: "200",rssmikle_frame_height: "100",rssmikle_target: "_blank",rssmikle_font: "Calibri, Calibri, sans-serif",rssmikle_font_size: "13",rssmikle_border: "off",responsive: "off",rssmikle_css_url: "",text_align: "left",text_align2: "left",corner: "off",scrollbar: "off",autoscroll: "on",scrolldirection: "up",scrollstep: "3",mcspeed: "20",sort: "New",rssmikle_title: "off",rssmikle_title_sentence: "",rssmikle_title_link: "",rssmikle_title_bgcolor: "#0066FF",rssmikle_title_color: "#a5a5a5",rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#1E1F2C",rssmikle_item_bgimage: "",rssmikle_item_title_length: "55",rssmikle_item_title_color: "#a5a5a5",rssmikle_item_border_bottom: "off",rssmikle_item_description: "title_only",item_link: "off",rssmikle_item_description_length: "150",rssmikle_item_description_color: "#a5a5a5",rssmikle_item_date: "off",rssmikle_timezone: "Etc/GMT",datetime_format: "%b %e, %Y %l:%M:%S %p",rssmikle_item_description_tag: "off",rssmikle_item_description_image_scaling: "off",article_num: "10",rssmikle_item_podcast: "off",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();</script><div style="font-size:10px; text-align:center; width:200;"></div></li>
+			</ul>			
+			<div class="clear"></div>
+			<br>
+	
+	<div id="oneout">
+				<div class="onetitle">
+				<img  id="dusty" src="pencil.png" />
+				</div>
+				
+				<div id="oneout_inner">					
+					<div id="note-pad">
+						<div id="note" contenteditable="true" onkeyup="storeUsernote(this.id);"></div>
+					</div>					
+					<center>
+						<a class="clear" href='' onclick='javascript:clearLocal();'>Clear</a>	
+					</center>					
+					<script>
+					  getUsernote();
+					</script>					
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Omni Search -->
+		<form id="search">
+			<ul class="engine">
+				<li class="first"><p id="curreng"><a href="google.com" id="go">Google</a></p>
+					<ul class="sub">
+						<li class="sel"><a href="kat.ph" id="kat">KAT.ph</a></li>
+						<li class="sel"><a href="youtube.com" id="yt">YouTube</a></li>
+						<li class="sel"><a href="vimeo.com" id="vm">Vimeo</a></li>
+					</ul>
+				</li>
+			</ul>
+			<span>|</span>
+			<ul class="type">
+				<li class="first"><p id="currtype"><a href="#" id="web">M</a></p>
+					<ul class="sub">
+						<li class="sel"><a href="#" id="images">I</a></li>
+						<li class="sel"><a href="#" id="video">V</a></li>
+						<li class="sel"><a href="#" id="news">D</a></li>
+					</ul>
+				</li>
+			</ul>
+			<input type="text" id="query" autocomplete="off"/>
+			
+			<div class="clear"></div>
+		</form>
+		<section id="resultsDiv"></section>
+	</div>
+				<!-- Calendar. Linked to a Google Calendar with all your important dates -->
+				<div id='calendar'></div>
+	
+</body>
+</html>
